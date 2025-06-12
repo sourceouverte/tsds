@@ -15,11 +15,11 @@ export default class Queue<T> {
      * To get the head element of the queue and remove the head
      * @returns T
      */
-    dequeue() {
+    dequeue(): T {
         if (this.isEmpty) {
             throw new Error(Errors.QUEUE_EMPTY);
         }
-        return this.store.shift();
+        return this.store.shift() as T;
     }
 
     /**

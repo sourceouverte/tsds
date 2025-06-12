@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export default class Node<T> {
-    id: number;
+    id: string;
     value: T;
     branchNodes: Node<T>[];
     //right: Node<T>[];
