@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class Vertex<T> {
   private types: VertexType[];
-  id: number;
+  id: string;
   value: T;
-  edges?: Map<number, Vertex<T>> = new Map();
+  edges: Map<string, Vertex<T>> = new Map();
 
   constructor(value: T) {
     this.id = uuidv4();
