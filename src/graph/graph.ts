@@ -2,7 +2,7 @@ import { Errors } from '../errors.enum';
 import Vertex from './vertex';
 
 export default class Graph<T> {
-  vertices = new Map();
+  vertices: Map<string, Vertex<T>> = new Map();
 
   /**
    * To add node in the graph

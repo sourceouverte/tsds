@@ -19,7 +19,7 @@ export default class Stack<T> {
             throw new Error(Errors.STACK_EMPTY);
         }
         const topItem = this.peek();
-        this.store.splice(this.size - 1);
+        this.store.splice(this.size - 1, 1);
         return topItem;
     }
 

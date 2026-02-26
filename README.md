@@ -1,11 +1,6 @@
 
 <div><img src="https://sourceouverte.github.io/assets/tsdslogo.png" /></div>
 
-[![Generate Documentation](https://github.com/sourceouverte/tsds/actions/workflows/deploy.yml/badge.svg)](https://github.com/sourceouverte/tsds/actions/workflows/deploy.yml)
-[![Node.js Package](https://github.com/sourceouverte/tsds/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sourceouverte/tsds/actions/workflows/npm-publish.yml)
-
-
-
 # Data Structures in Typescript 
 Library of **data structures** implemented in Typescript.
 

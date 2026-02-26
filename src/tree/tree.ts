@@ -1,7 +1,7 @@
 import Node from './node';
 
 export default class Tree<T> {
-    nodes = new Map();
+    nodes: Map<string, Node<T>> = new Map();
 
     /**
      * To add a node in the tree
@@ -23,7 +23,7 @@ export default class Tree<T> {
      * To get a node from the tree
      * @param nodeId
      */
-    getNode(nodeId: number) {
+    getNode(nodeId: string) {
         return this.nodes.get(nodeId);
     }
 }
