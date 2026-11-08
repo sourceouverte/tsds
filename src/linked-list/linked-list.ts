@@ -3,8 +3,8 @@ import LinkedListNode from './linked-list-node';
 import { NodePosition } from './node-position';
 
 export default class LinkedList<T> {
-    head: LinkedListNode<T>;
-    tail: LinkedListNode<T>;
+    head: LinkedListNode<T> | null;
+    tail: LinkedListNode<T> | null;
     length: number;
 
     constructor() {
@@ -24,7 +24,7 @@ export default class LinkedList<T> {
             this.head = node;
             this.tail = node;
         } else {
-            this.tail.next = node;
+            this.tail!.next = node;
             node.prev = this.tail;
             this.tail = node;
         }
@@ -36,7 +36,7 @@ export default class LinkedList<T> {
      * @param value
      * @returns LinkedListNode
      */
-    getNode(value: T): LinkedListNode<T> {
+    getNode(value: T): LinkedListNode<T> | undefined {
         let current = this.head;
 
         while (current) {
@@ -45,6 +45,8 @@ export default class LinkedList<T> {
             }
             current = current.next;
         }
+
+        return undefined;
     }
 
     /**
@@ -52,15 +54,37 @@ export default class LinkedList<T> {
      * @param node
      * @returns
      */
-    // removeNode(node: LinkedListNode<T>): void {
-    //   if (this.length === 0) {
-    //     throw new Error(Errors.LINKED_LIST_EMPTY);
-    //   }
+    removeNode(node: LinkedListNode<T>): void {
+        if (this.length === 0) {
+            throw new Error(Errors.LINKED_LIST_EMPTY);
+        }
 
-    //   if (this.head === node) {
-    //     this.head === this.head.next;
-    //   }
-    // }
+        if (!node) {
+            throw new Error(Errors.INVALID_NODE_POSITION);
+        }
+
+        if (this.head === node && this.tail === node) {
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+            return;
+        }
+
+        if (this.head === node) {
+            this.head = node.next;
+            this.head!.prev = null;
+        } else if (this.tail === node) {
+            this.tail = node.prev;
+            this.tail!.next = null;
+        } else {
+            node.prev!.next = node.next;
+            node.next!.prev = node.prev;
+        }
+
+        node.prev = null;
+        node.next = null;
+        this.length--;
+    }
 
     /**
      * To insert a node at a given position in the linked list.
@@ -68,29 +92,51 @@ export default class LinkedList<T> {
      * @param node The node before or after which the new node is inserted
      * @param position To indicate the position of the newly added node - BEFORE, AFTER
      */
-    insertNode(value: T, node: LinkedListNode<T>, position: NodePosition) {
+    insertNode(value: T, node: LinkedListNode<T> | null, position: NodePosition | null) {
         if (this.length === 0) {
             throw new Error(Errors.LINKED_LIST_EMPTY);
         }
+
+        if (!node || position === undefined || position === null) {
+            throw new Error(Errors.INVALID_NODE_POSITION);
+        }
+
         const nodeToBeInserted = new LinkedListNode(value);
 
-        switch (position) {
-            case NodePosition.BEFORE:
-                nodeToBeInserted.prev = node.prev;
+        if (position === NodePosition.BEFORE) {
+            if (this.head === node) {
                 nodeToBeInserted.next = node;
                 node.prev = nodeToBeInserted;
+                this.head = nodeToBeInserted;
                 this.length++;
                 return nodeToBeInserted;
+            }
 
-            case NodePosition.AFTER:
-                nodeToBeInserted.next = node.next;
+            nodeToBeInserted.prev = node.prev;
+            nodeToBeInserted.next = node;
+            node.prev!.next = nodeToBeInserted;
+            node.prev = nodeToBeInserted;
+            this.length++;
+            return nodeToBeInserted;
+        }
+
+        if (position === NodePosition.AFTER) {
+            if (this.tail === node) {
                 nodeToBeInserted.prev = node;
                 node.next = nodeToBeInserted;
+                this.tail = nodeToBeInserted;
                 this.length++;
                 return nodeToBeInserted;
+            }
 
-            default:
-                throw new Error(Errors.INVALID_NODE_POSITION);
+            nodeToBeInserted.next = node.next;
+            nodeToBeInserted.prev = node;
+            node.next!.prev = nodeToBeInserted;
+            node.next = nodeToBeInserted;
+            this.length++;
+            return nodeToBeInserted;
         }
+
+        throw new Error(Errors.INVALID_NODE_POSITION);
     }
 }

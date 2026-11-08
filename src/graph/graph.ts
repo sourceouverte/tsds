@@ -18,9 +18,12 @@ export default class Graph<T> {
    * @returns
    */
   removeVertex(vertex: Vertex<T>) {
-    // Remove the reference of vertex from all the edges where it was a participant
-    for (const [key, value] of Array.from(vertex.edges)) {
-      value.edges.delete(vertex.id);
+    if (!this.vertices.has(vertex.id)) {
+      return;
+    }
+
+    for (const adjacentVertex of Array.from(vertex.edges.values())) {
+      adjacentVertex.edges.delete(vertex.id);
     }
 
     this.vertices.delete(vertex.id);
@@ -33,6 +36,10 @@ export default class Graph<T> {
    * @returns
    */
   addEdge(source: Vertex<T>, destination: Vertex<T>) {
+    if (!this.vertices.has(source.id) || !this.vertices.has(destination.id)) {
+      throw new Error(Errors.EDGE_EXITS);
+    }
+
     if (source.edges.has(destination.id) && destination.edges.has(source.id)) {
       throw new Error(Errors.EDGE_EXITS);
     }
@@ -56,7 +63,11 @@ export default class Graph<T> {
    * @param destination ending of the edge
    */
   removeEdge(source: Vertex<T>, destination: Vertex<T>) {
-    if (source.edges.size === 0 || destination.edges.size === 0) {
+    if (!this.vertices.has(source.id) || !this.vertices.has(destination.id)) {
+      throw new Error(Errors.EDGES_EMPTY);
+    }
+
+    if (!source.edges.has(destination.id) || !destination.edges.has(source.id)) {
       throw new Error(Errors.EDGES_EMPTY);
     }
 

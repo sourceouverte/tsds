@@ -1,0 +1,10 @@
+source:
+  - "src/**/*"
+
+docs:
+  - "README.md"
+  - "documentation/**/*"
+  - "assets/**/*"
+
+ci:
+  - ".github/workflows/**/*"

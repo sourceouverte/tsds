@@ -3,6 +3,23 @@
   "version": "1.0.0",
   "description": "Data Structures in TypeScript",
   "author": "Madhur Ahuja",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourceouverte/tsds.git"
+  },
+  "homepage": "https://sourceouverte.github.io",
+  "bugs": {
+    "url": "https://github.com/sourceouverte/tsds/issues"
+  },
+  "keywords": [
+    "typescript",
+    "data-structures",
+    "queue",
+    "stack",
+    "tree",
+    "graph",
+    "linked-list"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
