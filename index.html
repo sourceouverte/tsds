@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>typescriptds documentation</title>
+        <title>@sourceouverte/tsds documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -78,7 +78,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="./" class="navbar-brand">typescriptds documentation</a>
+                    <a href="./" class="navbar-brand">@sourceouverte/tsds documentation</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -143,9 +143,9 @@
 <li><a href="https://sourceouverte.github.io/classes/Tree.html">Tree reference</a></li>
 </ul>
 <h2>Installation</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install typescriptds</code></pre></div><p>Or with Yarn:</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn add typescriptds</code></pre></div><h2>Quick start</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack, Queue, LinkedList, Graph, Tree } from &#39;typescriptds&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install &#64;sourceouverte/tsds</code></pre></div><p>Or with Yarn:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn add &#64;sourceouverte/tsds</code></pre></div><h2>Quick start</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack, Queue, LinkedList, Graph, Tree } from &#39;&#64;sourceouverte/tsds&#39;;
 
 const stack = new Stack&lt;number&gt;();
 stack.push(10);
@@ -164,21 +164,21 @@ list.addNode(2);
 console.log(list.getNode(2)?.value); // 2</code></pre></div><h2>Structure overview</h2>
 <h3>Stack</h3>
 <p>A last-in, first-out container where the most recently added value is processed first.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack } from &#39;typescriptds&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack } from &#39;&#64;sourceouverte/tsds&#39;;
 
 const stack = new Stack&lt;number&gt;();
 stack.push(1);
 stack.push(2);
 console.log(stack.pop()); // 2</code></pre></div><h3>Queue</h3>
 <p>A first-in, first-out container where items are processed in insertion order.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Queue } from &#39;typescriptds&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Queue } from &#39;&#64;sourceouverte/tsds&#39;;
 
 const queue = new Queue&lt;string&gt;();
 queue.enqueue(&#39;A&#39;);
 queue.enqueue(&#39;B&#39;);
 console.log(queue.dequeue()); // &#39;A&#39;</code></pre></div><h3>Linked List</h3>
 <p>A linear collection of linked nodes that supports iteration and insertion at known positions.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { LinkedList } from &#39;typescriptds&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { LinkedList } from &#39;&#64;sourceouverte/tsds&#39;;
 
 const list = new LinkedList&lt;number&gt;();
 list.addNode(10);
@@ -187,8 +187,8 @@ list.addNode(30);
 
 console.log(list.getNode(20)?.value); // 20</code></pre></div><h3>Tree</h3>
 <p>A hierarchical structure where nodes can branch into child nodes.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Tree } from &#39;typescriptds&#39;;
-import Node from &#39;typescriptds/dist/tree/node&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Tree } from &#39;&#64;sourceouverte/tsds&#39;;
+import Node from &#39;&#64;sourceouverte/tsds/dist/tree/node&#39;;
 
 const root = new Node&lt;number&gt;(1, []);
 const left = new Node&lt;number&gt;(2, []);
@@ -199,8 +199,8 @@ const tree = new Tree&lt;number&gt;();
 tree.addNode(root);
 console.log(tree.getNode(root.id)?.value); // 1</code></pre></div><h3>Graph</h3>
 <p>A structure of vertices connected by edges, suitable for representing networks and relationships.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Graph } from &#39;typescriptds&#39;;
-import Vertex from &#39;typescriptds/dist/graph/vertex&#39;;
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Graph } from &#39;&#64;sourceouverte/tsds&#39;;
+import Vertex from &#39;&#64;sourceouverte/tsds/dist/graph/vertex&#39;;
 
 const graph = new Graph&lt;number&gt;();
 const a = new Vertex&lt;number&gt;(1);
