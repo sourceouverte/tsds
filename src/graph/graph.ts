@@ -39,7 +39,7 @@ export default class Graph<T> {
    */
   addEdge(source: Vertex<T>, destination: Vertex<T>) {
     if (!this.vertices.has(source.id) || !this.vertices.has(destination.id)) {
-      throw new Error(Errors.EDGE_EXITS);
+      throw new Error(Errors.VERTEX_NOT_FOUND);
     }
 
     if (source.edges.has(destination.id) && destination.edges.has(source.id)) {

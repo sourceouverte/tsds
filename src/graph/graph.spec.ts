@@ -48,6 +48,17 @@ test('should be able to add a new edge', () => {
     );
 });
 
+test('should throw a vertex-not-found error when adding an edge to an unknown vertex', () => {
+    const vertex1 = new Vertex<number>(1);
+    const vertex2 = new Vertex<number>(2);
+
+    graphForNumbers.addVertex(vertex1);
+
+    expect(() => graphForNumbers.addEdge(vertex1, vertex2)).toThrow(
+        Errors.VERTEX_NOT_FOUND
+    );
+});
+
 test('should be able to remove the vertex', () => {
     const vertex1 = new Vertex<number>(1);
     const vertex2 = new Vertex<number>(2);
