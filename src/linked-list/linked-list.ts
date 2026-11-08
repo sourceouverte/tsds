@@ -92,7 +92,7 @@ export default class LinkedList<T> {
      * @param node The node before or after which the new node is inserted
      * @param position To indicate the position of the newly added node - BEFORE, AFTER
      */
-    insertNode(value: T, node: LinkedListNode<T> | null, position: NodePosition | null) {
+    insertNode(value: T, node: LinkedListNode<T> | null | undefined, position: NodePosition | null | undefined) {
         if (this.length === 0) {
             throw new Error(Errors.LINKED_LIST_EMPTY);
         }
