@@ -203,4 +203,3 @@ This project is licensed under the MIT License.
 
 | <img src="https://sourceouverte.github.io/assets/contributor_pics/madhur_avatar.png" width="95"/> <br> <a href="https://github.com/madhurahuja">Madhur Ahuja</a> | <img src="https://sourceouverte.github.io/assets/contributor_pics/rajdeep_avatar.png" width="95"/> <br> <a href="https://github.com/rajdeepratan">Rajdeep Ratan</a> |
 | --- |:--- |
-
