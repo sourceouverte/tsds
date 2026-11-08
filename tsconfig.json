@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "incremental": true /* Enable incremental compilation */,
+    "tsBuildInfoFile": ".tsbuildinfo" /* Store build info outside dist */,
     "target": "es5" /* Specify ECMAScript target version: */,
     "module": "commonjs" /* 'none', 'commonjs', 'amd', 'system', etc */,
     "declaration": true /* Concatenate & emit output to single file.*/,
@@ -9,5 +10,6 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently */
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"]
 }
