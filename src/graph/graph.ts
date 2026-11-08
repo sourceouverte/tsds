@@ -18,15 +18,17 @@ export default class Graph<T> {
    * @returns
    */
   removeVertex(vertex: Vertex<T>) {
-    if (!this.vertices.has(vertex.id)) {
+    const existing = this.vertices.get(vertex.id);
+    if (!existing) {
       return;
     }
 
-    for (const adjacentVertex of Array.from(vertex.edges.values())) {
-      adjacentVertex.edges.delete(vertex.id);
+    for (const adjacentVertex of Array.from(existing.edges.values())) {
+      adjacentVertex.edges.delete(existing.id);
     }
 
-    this.vertices.delete(vertex.id);
+    existing.edges.clear();
+    this.vertices.delete(existing.id);
   }
 
   /**
