@@ -44,19 +44,19 @@ Built for developers who want fast access to essential structures without unnece
 ## Installation
 
 ```bash
-npm install typescriptds
+npm install @sourceouverte/tsds
 ```
 
 Or with Yarn:
 
 ```bash
-yarn add typescriptds
+yarn add @sourceouverte/tsds
 ```
 
 ## Quick start
 
 ```ts
-import { Stack, Queue, LinkedList, Graph, Tree } from 'typescriptds';
+import { Stack, Queue, LinkedList, Graph, Tree } from '@sourceouverte/tsds';
 
 const stack = new Stack<number>();
 stack.push(10);
@@ -82,7 +82,7 @@ console.log(list.getNode(2)?.value); // 2
 A last-in, first-out container where the most recently added value is processed first.
 
 ```ts
-import { Stack } from 'typescriptds';
+import { Stack } from '@sourceouverte/tsds';
 
 const stack = new Stack<number>();
 stack.push(1);
@@ -95,7 +95,7 @@ console.log(stack.pop()); // 2
 A first-in, first-out container where items are processed in insertion order.
 
 ```ts
-import { Queue } from 'typescriptds';
+import { Queue } from '@sourceouverte/tsds';
 
 const queue = new Queue<string>();
 queue.enqueue('A');
@@ -108,7 +108,7 @@ console.log(queue.dequeue()); // 'A'
 A linear collection of linked nodes that supports iteration and insertion at known positions.
 
 ```ts
-import { LinkedList } from 'typescriptds';
+import { LinkedList } from '@sourceouverte/tsds';
 
 const list = new LinkedList<number>();
 list.addNode(10);
@@ -123,8 +123,8 @@ console.log(list.getNode(20)?.value); // 20
 A hierarchical structure where nodes can branch into child nodes.
 
 ```ts
-import { Tree } from 'typescriptds';
-import Node from 'typescriptds/dist/tree/node';
+import { Tree } from '@sourceouverte/tsds';
+import Node from '@sourceouverte/tsds/dist/tree/node';
 
 const root = new Node<number>(1, []);
 const left = new Node<number>(2, []);
@@ -141,8 +141,8 @@ console.log(tree.getNode(root.id)?.value); // 1
 A structure of vertices connected by edges, suitable for representing networks and relationships.
 
 ```ts
-import { Graph } from 'typescriptds';
-import Vertex from 'typescriptds/dist/graph/vertex';
+import { Graph } from '@sourceouverte/tsds';
+import Vertex from '@sourceouverte/tsds/dist/graph/vertex';
 
 const graph = new Graph<number>();
 const a = new Vertex<number>(1);
