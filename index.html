@@ -104,47 +104,145 @@
                    <div class="content-data">
 
 
-<div><img src="https://sourceouverte.github.io/assets/tsdslogo.png" /></div><h1>Data Structures in TypeScript</h1>
-<p>A lightweight TypeScript library providing common data structures for learning, experimentation, and application development.</p>
-<h2>Included structures</h2>
+<div><img src="https://sourceouverte.github.io/assets/tsdslogo.png" /></div><p><img src="https://github.com/sourceouverte/tsds/actions/workflows/ci.yml/badge.svg" alt="CI" class="img-responsive">
+<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT" class="img-responsive">
+<img src="https://img.shields.io/badge/TypeScript-5.x-3178C6.svg" alt="TypeScript" class="img-responsive">
+<img src="https://img.shields.io/badge/Docs-Generated-orange.svg" alt="Docs" class="img-responsive"></p>
+<h1>TSDS</h1>
+<p>TypeScript Data Structures</p>
+<p>TSDS is a lightweight TypeScript library for common data structures with a clean, readable API and a strong focus on learning, prototyping, and practical application development.</p>
+<p>Built for developers who want fast access to essential structures without unnecessary framework overhead, TSDS emphasizes clarity, reliability, and TypeScript-first ergonomics.</p>
+<h2>Why TSDS?</h2>
 <ul>
-<li><a href="https://sourceouverte.github.io/classes/Graph.html">Graph</a></li>
-<li><a href="https://sourceouverte.github.io/classes/LinkedList.html">LinkedList</a></li>
-<li><a href="https://sourceouverte.github.io/classes/Queue.html">Queue</a></li>
-<li><a href="https://sourceouverte.github.io/classes/Stack.html">Stack</a></li>
-<li><a href="https://sourceouverte.github.io/classes/Tree.html">Tree</a></li>
+<li>Simple APIs for common structure operations</li>
+<li>Strong TypeScript typing for safer development</li>
+<li>Minimal dependencies and easy integration</li>
+<li>Ideal for learning, interview prep, and lightweight app logic</li>
+<li>Well-structured codebase with test coverage and generated docs</li>
+</ul>
+<h2>Feature highlights</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr><th>Structure</th><th>Purpose</th><th>Typical use</th></tr>
+</thead>
+<tbody>
+<tr><td>Stack</td><td>LIFO access</td><td>undo flows, parsing, recursion helpers</td></tr>
+<tr><td>Queue</td><td>FIFO access</td><td>scheduling, buffering, task processing</td></tr>
+<tr><td>Linked List</td><td>ordered node traversal</td><td>list algorithms, insertion/removal logic</td></tr>
+<tr><td>Tree</td><td>hierarchical relationship modeling</td><td>hierarchies, traversal, AST-like structures</td></tr>
+<tr><td>Graph</td><td>networked relationships</td><td>dependency maps, social graphs, route planning</td></tr>
+</tbody>
+</table>
+<h2>Documentation</h2>
+<ul>
+<li><a href="https://sourceouverte.github.io/index.html">Project docs</a></li>
+<li><a href="https://sourceouverte.github.io/classes/Graph.html">Graph reference</a></li>
+<li><a href="https://sourceouverte.github.io/classes/LinkedList.html">LinkedList reference</a></li>
+<li><a href="https://sourceouverte.github.io/classes/Queue.html">Queue reference</a></li>
+<li><a href="https://sourceouverte.github.io/classes/Stack.html">Stack reference</a></li>
+<li><a href="https://sourceouverte.github.io/classes/Tree.html">Tree reference</a></li>
 </ul>
 <h2>Installation</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install typescriptds</code></pre></div><h2>Usage</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install typescriptds</code></pre></div><p>Or with Yarn:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash">yarn add typescriptds</code></pre></div><h2>Quick start</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack, Queue, LinkedList, Graph, Tree } from &#39;typescriptds&#39;;
+
+const stack = new Stack&lt;number&gt;();
+stack.push(10);
+stack.push(20);
+console.log(stack.peek()); // 20
+console.log(stack.pop()); // 20
+
+const queue = new Queue&lt;string&gt;();
+queue.enqueue(&#39;first&#39;);
+queue.enqueue(&#39;second&#39;);
+console.log(queue.dequeue()); // &#39;first&#39;
+
+const list = new LinkedList&lt;number&gt;();
+list.addNode(1);
+list.addNode(2);
+console.log(list.getNode(2)?.value); // 2</code></pre></div><h2>Structure overview</h2>
+<h3>Stack</h3>
+<p>A last-in, first-out container where the most recently added value is processed first.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Stack } from &#39;typescriptds&#39;;
 
 const stack = new Stack&lt;number&gt;();
 stack.push(1);
 stack.push(2);
-console.log(stack.pop()); // 2
+console.log(stack.pop()); // 2</code></pre></div><h3>Queue</h3>
+<p>A first-in, first-out container where items are processed in insertion order.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Queue } from &#39;typescriptds&#39;;
 
 const queue = new Queue&lt;string&gt;();
-queue.enqueue(&#39;first&#39;);
-console.log(queue.peek()); // &#39;first&#39;
+queue.enqueue(&#39;A&#39;);
+queue.enqueue(&#39;B&#39;);
+console.log(queue.dequeue()); // &#39;A&#39;</code></pre></div><h3>Linked List</h3>
+<p>A linear collection of linked nodes that supports iteration and insertion at known positions.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { LinkedList } from &#39;typescriptds&#39;;
 
 const list = new LinkedList&lt;number&gt;();
 list.addNode(10);
-list.addNode(20);</code></pre></div><h2>Development</h2>
+list.addNode(20);
+list.addNode(30);
+
+console.log(list.getNode(20)?.value); // 20</code></pre></div><h3>Tree</h3>
+<p>A hierarchical structure where nodes can branch into child nodes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Tree } from &#39;typescriptds&#39;;
+import Node from &#39;typescriptds/dist/tree/node&#39;;
+
+const root = new Node&lt;number&gt;(1, []);
+const left = new Node&lt;number&gt;(2, []);
+const right = new Node&lt;number&gt;(3, []);
+root.branchNodes = [left, right];
+
+const tree = new Tree&lt;number&gt;();
+tree.addNode(root);
+console.log(tree.getNode(root.id)?.value); // 1</code></pre></div><h3>Graph</h3>
+<p>A structure of vertices connected by edges, suitable for representing networks and relationships.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Graph } from &#39;typescriptds&#39;;
+import Vertex from &#39;typescriptds/dist/graph/vertex&#39;;
+
+const graph = new Graph&lt;number&gt;();
+const a = new Vertex&lt;number&gt;(1);
+const b = new Vertex&lt;number&gt;(2);
+
+graph.addVertex(a);
+graph.addVertex(b);
+graph.addEdge(a, b);
+
+console.log(graph.getEdges(a).has(b.id)); // true</code></pre></div><h2>Development</h2>
+<p>The project uses TypeScript and Jest for validation and compile checks.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-bash">npm install
 npm test
 npm run build
-npm run docs</code></pre></div><p>Commands:</p>
+npm run docs</code></pre></div><p>Useful commands:</p>
 <ul>
-<li><code>npm run test</code> - run the Jest suite</li>
+<li><code>npm test</code> - run the test suite</li>
 <li><code>npm run test-watch</code> - run tests in watch mode</li>
 <li><code>npm run test-coverage</code> - generate coverage output</li>
-<li><code>npm run build</code> - compile the TypeScript library</li>
-<li><code>npm run docs</code> - generate project documentation</li>
+<li><code>npm run build</code> - compile the library</li>
+<li><code>npm run docs</code> - generate the project documentation</li>
 </ul>
-<h2>Library documentation</h2>
+<h2>Architecture principles</h2>
+<p>TSDS is intentionally simple:</p>
 <ul>
-<li><a href="https://sourceouverte.github.io/index.html">Documentation</a></li>
+<li>each structure exposes a compact, discoverable surface area</li>
+<li>behavior is explicit and idiomatic for JavaScript/TypeScript developers</li>
+<li>the library favors clarity over framework-specific abstractions</li>
+<li>implementations are easy to read, extend, and teach</li>
 </ul>
+<p>This makes TSDS a good fit for education, experimentation, and lightweight domain logic where a full library framework would be unnecessary.</p>
+<h2>Contributing</h2>
+<p>Contributions are welcome. To contribute:</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Add or update tests where needed</li>
+<li>Run local validation</li>
+<li>Open a pull request with a clear summary</li>
+</ol>
+<h2>License</h2>
+<p>This project is licensed under the MIT License.</p>
 <h2>Contributors</h2>
 <table class="table table-bordered compodoc-table">
 <thead>
