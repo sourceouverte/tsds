@@ -54,7 +54,7 @@ export default class LinkedList<T> {
      * @param node
      * @returns
      */
-    removeNode(node: LinkedListNode<T>): void {
+    removeNode(node: LinkedListNode<T> | null | undefined): void {
         if (this.length === 0) {
             throw new Error(Errors.LINKED_LIST_EMPTY);
         }
